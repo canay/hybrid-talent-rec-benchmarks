@@ -1,0 +1,46 @@
+{
+  "dataset_name": "karrierewege_ict_benchmark_v1",
+  "source_name": "KARRIEREWEGE",
+  "source_parquet_urls": [
+    "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/train/0.parquet",
+    "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/train/1.parquet",
+    "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/train/2.parquet",
+    "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/train/3.parquet",
+    "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/train/4.parquet",
+    "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/train/5.parquet",
+    "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/train/6.parquet",
+    "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/train/7.parquet",
+    "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/train/8.parquet",
+    "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/validation/0.parquet",
+    "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/test/0.parquet",
+    "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/test/1.parquet"
+  ],
+  "created_on": "2026-03-31",
+  "task": "next_occupation_recommendation",
+  "domain_scope": "skills-aware technology talent recommendation",
+  "filtering": {
+    "manual_ict_scan_size": 58,
+    "min_user_sequence_length": 3,
+    "min_item_user_support": 25,
+    "collapse_consecutive_duplicates": false
+  },
+  "stats": {
+    "raw_manual_filter_interactions": 26757,
+    "raw_manual_filter_users": 15437,
+    "raw_manual_filter_items": 58,
+    "filtered_interactions": 10492,
+    "filtered_users": 2617,
+    "filtered_items": 35,
+    "avg_sequence_length": 4.0091708062667175,
+    "max_sequence_length": 23,
+    "min_sequence_length": 3,
+    "family_distribution": {
+      "data_ai": 6,
+      "digital_experience": 4,
+      "hardware_automation": 2,
+      "infrastructure_security": 9,
+      "software_engineering": 8,
+      "tech_management": 6
+    }
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "dataset": "jobhop_ict_benchmark_v1",
+  "source_name": "JobHop",
+  "mode": "canonical",
+  "seed": 20260331,
+  "user_id": "57220",
+  "history": [
+    {
+      "item_id": "ict_help_desk_agent",
+      "label": "ict help desk agent",
+      "family": "infrastructure_security"
+    },
+    {
+      "item_id": "web_developer",
+      "label": "web developer",
+      "family": "digital_experience"
+    },
+    {
+      "item_id": "web_developer",
+      "label": "web developer",
+      "family": "digital_experience"
+    },
+    {
+      "item_id": "ict_application_developer",
+      "label": "ict application developer",
+      "family": "software_engineering"
+    },
+    {
+      "item_id": "web_developer",
+      "label": "web developer",
+      "family": "digital_experience"
+    }
+  ],
+  "validation_item": {
+    "item_id": "ict_application_developer",
+    "label": "ict application developer",
+    "family": "software_engineering"
+  },
+  "test_item": {
+    "item_id": "user_interface_developer",
+    "label": "user interface developer",
+    "family": "digital_experience"
+  },
+  "full_hybrid": {
+    "alpha": 1.0,
+    "cf_weight": 0.5,
+    "rl_weight": 0.4,
+    "topsis_weight": 0.09999999999999998
+  },
+  "criteria_weights": [
+    {
+      "criterion": "market_prevalence",
+      "weight": 0.32035164300962016
+    },
+    {
+      "criterion": "transition_mobility",
+      "weight": 0.31188976816911756
+    },
+    {
+      "criterion": "digital_skill_density",
+      "weight": 0.1806123212199073
+    },
+    {
+      "criterion": "role_level",
+      "weight": 0.07840761041156494
+    },
+    {
+      "criterion": "skill_breadth",
+      "weight": 0.06708400940243553
+    },
+    {
+      "criterion": "innovation_intensity",
+      "weight": 0.0416546477873546
+    }
+  ],
+  "target_ranks": {
+    "full_hybrid": 3,
+    "hybrid_cf_topsis": 31,
+    "item_markov": 22,
+    "transition_cf": 21,
+    "rl_bandit": 2,
+    "topsis": 40
+  },
+  "top_candidates": [
+    {
+      "rank": 1,
+      "item": {
+        "item_id": "web_developer",
+        "label": "web developer",
+        "family": "digital_experience"
+      },
+      "is_test_item": false,
+      "scores": {
+        "cf": 1.0,
+        "rl": 1.0,
+        "topsis": 0.43991338861981055,
+        "full_hybrid": 1.0
+      },
+      "weighted_components": {
+        "cf": 0.5,
+        "rl": 0.4,
+        "topsis": 0.04399133886198105
+      }
+    },
+    {
+      "rank": 2,
+      "item": {
+        "item_id": "software_developer",
+        "label": "software developer",
+        "family": "software_engineering"
+      },
+      "is_test_item": false,
+      "scores": {
+        "cf": 0.2848161814157674,
+        "rl": 0.63420809441085,
+        "topsis": 0.7225495369119579,
+        "full_hybrid": 0.4889951852625651
+      },
+      "weighted_components": {
+        "cf": 0.1424080907078837,
+        "rl": 0.25368323776434004,
+        "topsis": 0.07225495369119578
+      }
+    },
+    {
+      "rank": 3,
+      "item": {
+        "item_id": "user_interface_developer",
+        "label": "user interface developer",
+        "family": "digital_experience"
+      },
+      "is_test_item": true,
+      "scores": {
+        "cf": 0.034852111471807314,
+        "rl": 0.8951612903225081,
+        "topsis": 0.06964162185796949,
+        "full_hybrid": 0.39671840447250317
+      },
+      "weighted_components": {
+        "cf": 0.017426055735903657,
+        "rl": 0.35806451612900325,
+        "topsis": 0.006964162185796948
+      }
+    },
+    {
+      "rank": 4,
+      "item": {
+        "item_id": "ict_help_desk_agent",
+        "label": "ict help desk agent",
+        "family": "infrastructure_security"
+      },
+      "is_test_item": false,
+      "scores": {
+        "cf": 0.16958590698607817,
+        "rl": 0.4461166099747724,
+        "topsis": 1.0,
+        "full_hybrid": 0.37607480235012614
+      },
+      "weighted_components": {
+        "cf": 0.08479295349303909,
+        "rl": 0.17844664398990898,
+        "topsis": 0.09999999999999998
+      }
+    },
+    {
+      "rank": 5,
+      "item": {
+        "item_id": "ict_application_developer",
+        "label": "ict application developer",
+        "family": "software_engineering"
+      },
+      "is_test_item": false,
+      "scores": {
+        "cf": 0.24916196045756628,
+        "rl": 0.507595191184956,
+        "topsis": 0.30164166763295786,
+        "full_hybrid": 0.37021279799547063
+      },
+      "weighted_components": {
+        "cf": 0.12458098022878314,
+        "rl": 0.20303807647398242,
+        "topsis": 0.03016416676329578
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "mode": "chronological_random_cut",
+  "seed_start": 100,
+  "repeats": 10,
+  "rule": "For each user, choose test_index uniformly from [2, len(sequence)-1]; validation is test_index-1 and train is the prefix before validation."
+}

@@ -1,0 +1,2357 @@
+{
+  "config": {
+    "dataset_dir": "data\\prepared\\jobhop_ict_benchmark_v1",
+    "output_path": "output\\jobhop_with_gru4rec_results.json",
+    "top_k": 5,
+    "repeats": 10,
+    "seed_start": 100,
+    "topsis_alphas": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "rl_weights": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5
+    ],
+    "cf_weights": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7
+    ],
+    "nmf_components_grid": [
+      6,
+      10,
+      14
+    ],
+    "svd_components_grid": [
+      6,
+      10,
+      14
+    ],
+    "gru_hidden_dims_grid": [
+      16,
+      32,
+      64
+    ],
+    "sasrec_hidden_dims_grid": [
+      16,
+      32,
+      64
+    ],
+    "rl_learning_rate": 0.2,
+    "rl_negative_reward": -0.2,
+    "rl_negatives_per_positive": 2,
+    "rl_epochs": 30,
+    "rl_transition_weight": 0.7,
+    "canonical_seed": 20260331,
+    "gru_epochs": 25,
+    "gru_learning_rate": 0.001,
+    "gru_weight_decay": 1e-05,
+    "gru_batch_size": 64,
+    "sasrec_num_heads": 2,
+    "sasrec_num_layers": 1,
+    "sasrec_dropout": 0.1,
+    "sasrec_epochs": 25,
+    "sasrec_learning_rate": 0.001,
+    "sasrec_weight_decay": 1e-05,
+    "sasrec_batch_size": 64
+  },
+  "dataset_metadata": {
+    "dataset_name": "jobhop_ict_benchmark_v1",
+    "source_name": "JobHop",
+    "source_csv_urls": [
+      "https://huggingface.co/datasets/aida-ugent/JobHop/resolve/main/JobHop_train.csv?download=1",
+      "https://huggingface.co/datasets/aida-ugent/JobHop/resolve/main/JobHop_val.csv?download=1",
+      "https://huggingface.co/datasets/aida-ugent/JobHop/resolve/main/JobHop_test.csv?download=1"
+    ],
+    "created_on": "2026-03-31",
+    "task": "next_occupation_recommendation",
+    "domain_scope": "skills-aware technology talent recommendation",
+    "filtering": {
+      "manual_ict_scan_size": 76,
+      "min_user_sequence_length": 3,
+      "min_item_user_support": 25,
+      "collapse_consecutive_duplicates": false
+    },
+    "stats": {
+      "raw_manual_filter_interactions": 30000,
+      "raw_manual_filter_users": 18111,
+      "raw_manual_filter_items": 76,
+      "filtered_interactions": 10826,
+      "filtered_users": 2778,
+      "filtered_items": 47,
+      "avg_sequence_length": 3.8970482361411087,
+      "max_sequence_length": 11,
+      "min_sequence_length": 3,
+      "family_distribution": {
+        "data_ai": 6,
+        "digital_experience": 2,
+        "hardware_automation": 4,
+        "infrastructure_security": 9,
+        "software_engineering": 15,
+        "tech_management": 11
+      }
+    }
+  },
+  "canonical": {
+    "seed": 20260331,
+    "mode": "canonical",
+    "metrics": {
+      "popularity": {
+        "HR@K": 0.2775377969762419,
+        "NDCG@K": 0.19867910132384972,
+        "MRR@K": 0.17276817854571633,
+        "Precision@K": 0.055507559395248374
+      },
+      "repeat_last": {
+        "HR@K": 0.36645068394528435,
+        "NDCG@K": 0.2804622200737943,
+        "MRR@K": 0.252039836813055,
+        "Precision@K": 0.07329013678905688
+      },
+      "item_markov": {
+        "HR@K": 0.4118070554355652,
+        "NDCG@K": 0.30277379717736796,
+        "MRR@K": 0.2669726421886249,
+        "Precision@K": 0.08236141108711303
+      },
+      "transition_cf": {
+        "HR@K": 0.4150467962562995,
+        "NDCG@K": 0.3011748502216233,
+        "MRR@K": 0.26359491240700744,
+        "Precision@K": 0.0830093592512599
+      },
+      "nmf": {
+        "HR@K": 0.3592512598992081,
+        "NDCG@K": 0.25896783090367326,
+        "MRR@K": 0.226163906887449,
+        "Precision@K": 0.07185025197984161
+      },
+      "svd": {
+        "HR@K": 0.34557235421166305,
+        "NDCG@K": 0.2490891646747275,
+        "MRR@K": 0.21761459083273338,
+        "Precision@K": 0.06911447084233262
+      },
+      "gru4rec": {
+        "HR@K": 0.3966882649388049,
+        "NDCG@K": 0.29236709456102394,
+        "MRR@K": 0.2580153587712983,
+        "Precision@K": 0.07933765298776098
+      },
+      "sasrec": {
+        "HR@K": 0.421886249100072,
+        "NDCG@K": 0.30407705688650893,
+        "MRR@K": 0.2652147828173746,
+        "Precision@K": 0.0843772498200144
+      },
+      "topsis": {
+        "HR@K": 0.3102951763858891,
+        "NDCG@K": 0.21023195078679374,
+        "MRR@K": 0.17749580033597315,
+        "Precision@K": 0.06205903527717783
+      },
+      "rl_bandit": {
+        "HR@K": 0.3876889848812095,
+        "NDCG@K": 0.27494435217047714,
+        "MRR@K": 0.23798296136309097,
+        "Precision@K": 0.07753779697624191
+      },
+      "hybrid_cf_topsis": {
+        "HR@K": 0.4107271418286537,
+        "NDCG@K": 0.3037303686631292,
+        "MRR@K": 0.26861651067914566,
+        "Precision@K": 0.08214542836573074
+      },
+      "hybrid_rl_topsis": {
+        "HR@K": 0.3830093592512599,
+        "NDCG@K": 0.27137165602799074,
+        "MRR@K": 0.23482721382289418,
+        "Precision@K": 0.07660187185025198
+      },
+      "full_hybrid": {
+        "HR@K": 0.4431245500359971,
+        "NDCG@K": 0.31819335937283766,
+        "MRR@K": 0.2773698104151668,
+        "Precision@K": 0.08862491000719942
+      }
+    },
+    "tuned_params": {
+      "feature_names": [
+        "market_prevalence",
+        "skill_breadth",
+        "digital_skill_density",
+        "innovation_intensity",
+        "role_level",
+        "transition_mobility"
+      ],
+      "global_entropy_weights": {
+        "market_prevalence": 0.3114500404509209,
+        "skill_breadth": 0.11254802067196422,
+        "digital_skill_density": 0.052245295255403265,
+        "innovation_intensity": 0.23336370284233662,
+        "role_level": 0.1616409754712516,
+        "transition_mobility": 0.12875196530812338
+      },
+      "nmf_components": 6,
+      "svd_components": 6,
+      "gru_hidden_dim": 32,
+      "sasrec_hidden_dim": 32,
+      "topsis_alpha": 0.75,
+      "hybrid_cf_topsis": {
+        "alpha": 1.0,
+        "cf_weight": 0.7,
+        "topsis_weight": 0.30000000000000004
+      },
+      "hybrid_rl_topsis": {
+        "alpha": 1.0,
+        "rl_weight": 0.5,
+        "topsis_weight": 0.5
+      },
+      "full_hybrid": {
+        "alpha": 1.0,
+        "cf_weight": 0.5,
+        "rl_weight": 0.4,
+        "topsis_weight": 0.09999999999999998
+      }
+    }
+  },
+  "repeated": {
+    "splits": [
+      {
+        "seed": 100,
+        "mode": "repeated",
+        "metrics": {
+          "popularity": {
+            "HR@K": 0.2894168466522678,
+            "NDCG@K": 0.20441035287230244,
+            "MRR@K": 0.17670986321094312,
+            "Precision@K": 0.05788336933045357
+          },
+          "repeat_last": {
+            "HR@K": 0.36645068394528435,
+            "NDCG@K": 0.2827702975213417,
+            "MRR@K": 0.254973602111831,
+            "Precision@K": 0.07329013678905688
+          },
+          "item_markov": {
+            "HR@K": 0.3988480921526278,
+            "NDCG@K": 0.2944660299243165,
+            "MRR@K": 0.2601811855051596,
+            "Precision@K": 0.07976961843052556
+          },
+          "transition_cf": {
+            "HR@K": 0.3992080633549316,
+            "NDCG@K": 0.29087950295692483,
+            "MRR@K": 0.25532757379409643,
+            "Precision@K": 0.07984161267098633
+          },
+          "nmf": {
+            "HR@K": 0.3329733621310295,
+            "NDCG@K": 0.2396821858627694,
+            "MRR@K": 0.20928125749940008,
+            "Precision@K": 0.06659467242620591
+          },
+          "svd": {
+            "HR@K": 0.3254139668826494,
+            "NDCG@K": 0.23592536219234156,
+            "MRR@K": 0.20677945764338856,
+            "Precision@K": 0.06508279337652988
+          },
+          "gru4rec": {
+            "HR@K": 0.4010079193664507,
+            "NDCG@K": 0.2872898597899285,
+            "MRR@K": 0.249970002399808,
+            "Precision@K": 0.08020158387329014
+          },
+          "sasrec": {
+            "HR@K": 0.41792656587473004,
+            "NDCG@K": 0.29951806754030214,
+            "MRR@K": 0.260595152387809,
+            "Precision@K": 0.08358531317494601
+          },
+          "topsis": {
+            "HR@K": 0.3228941684665227,
+            "NDCG@K": 0.2153305063593128,
+            "MRR@K": 0.1801295896328294,
+            "Precision@K": 0.06457883369330454
+          },
+          "rl_bandit": {
+            "HR@K": 0.36609071274298055,
+            "NDCG@K": 0.25950259223850053,
+            "MRR@K": 0.22484401247900174,
+            "Precision@K": 0.07321814254859611
+          },
+          "hybrid_cf_topsis": {
+            "HR@K": 0.3880489560835133,
+            "NDCG@K": 0.2873262063399659,
+            "MRR@K": 0.2541456683465323,
+            "Precision@K": 0.07760979121670267
+          },
+          "hybrid_rl_topsis": {
+            "HR@K": 0.3776097912167027,
+            "NDCG@K": 0.26013367280123834,
+            "MRR@K": 0.2215502759779218,
+            "Precision@K": 0.07552195824334054
+          },
+          "full_hybrid": {
+            "HR@K": 0.4143268538516919,
+            "NDCG@K": 0.3007796125610318,
+            "MRR@K": 0.26352891768658504,
+            "Precision@K": 0.08286537077033837
+          }
+        },
+        "tuned_params": {
+          "feature_names": [
+            "market_prevalence",
+            "skill_breadth",
+            "digital_skill_density",
+            "innovation_intensity",
+            "role_level",
+            "transition_mobility"
+          ],
+          "global_entropy_weights": {
+            "market_prevalence": 0.3239821293484622,
+            "skill_breadth": 0.11195781176401301,
+            "digital_skill_density": 0.05197131763701268,
+            "innovation_intensity": 0.23213992888889265,
+            "role_level": 0.16079332001677574,
+            "transition_mobility": 0.11915549234484371
+          },
+          "nmf_components": 6,
+          "svd_components": 6,
+          "gru_hidden_dim": 32,
+          "sasrec_hidden_dim": 32,
+          "topsis_alpha": 0.75,
+          "hybrid_cf_topsis": {
+            "alpha": 0.0,
+            "cf_weight": 0.7,
+            "topsis_weight": 0.30000000000000004
+          },
+          "hybrid_rl_topsis": {
+            "alpha": 0.25,
+            "rl_weight": 0.5,
+            "topsis_weight": 0.5
+          },
+          "full_hybrid": {
+            "alpha": 0.25,
+            "cf_weight": 0.4,
+            "rl_weight": 0.3,
+            "topsis_weight": 0.29999999999999993
+          }
+        }
+      },
+      {
+        "seed": 101,
+        "mode": "repeated",
+        "metrics": {
+          "popularity": {
+            "HR@K": 0.2847372210223182,
+            "NDCG@K": 0.20115846027144696,
+            "MRR@K": 0.17389008879289658,
+            "Precision@K": 0.05694744420446364
+          },
+          "repeat_last": {
+            "HR@K": 0.3570914326853852,
+            "NDCG@K": 0.2793449964019916,
+            "MRR@K": 0.253521718262539,
+            "Precision@K": 0.07141828653707703
+          },
+          "item_markov": {
+            "HR@K": 0.404247660187185,
+            "NDCG@K": 0.2964570486969771,
+            "MRR@K": 0.26111111111111107,
+            "Precision@K": 0.08084953203743701
+          },
+          "transition_cf": {
+            "HR@K": 0.40244780417566595,
+            "NDCG@K": 0.29707951558314194,
+            "MRR@K": 0.2623230141588673,
+            "Precision@K": 0.08048956083513319
+          },
+          "nmf": {
+            "HR@K": 0.33981281497480204,
+            "NDCG@K": 0.24892025465523196,
+            "MRR@K": 0.21900647948164145,
+            "Precision@K": 0.06796256299496041
+          },
+          "svd": {
+            "HR@K": 0.3488120950323974,
+            "NDCG@K": 0.2509740471931179,
+            "MRR@K": 0.2190124790016799,
+            "Precision@K": 0.06976241900647949
+          },
+          "gru4rec": {
+            "HR@K": 0.3880489560835133,
+            "NDCG@K": 0.28294317335173247,
+            "MRR@K": 0.24838612910967123,
+            "Precision@K": 0.07760979121670267
+          },
+          "sasrec": {
+            "HR@K": 0.4085673146148308,
+            "NDCG@K": 0.29187047799233223,
+            "MRR@K": 0.2535697144228462,
+            "Precision@K": 0.08171346292296616
+          },
+          "topsis": {
+            "HR@K": 0.31389488840892726,
+            "NDCG@K": 0.21031024245610938,
+            "MRR@K": 0.17640388768898488,
+            "Precision@K": 0.06277897768178547
+          },
+          "rl_bandit": {
+            "HR@K": 0.37976961843052554,
+            "NDCG@K": 0.27372654067871294,
+            "MRR@K": 0.23884089272858172,
+            "Precision@K": 0.07595392368610511
+          },
+          "hybrid_cf_topsis": {
+            "HR@K": 0.413966882649388,
+            "NDCG@K": 0.29744854316686253,
+            "MRR@K": 0.2596112311015119,
+            "Precision@K": 0.08279337652987762
+          },
+          "hybrid_rl_topsis": {
+            "HR@K": 0.37976961843052554,
+            "NDCG@K": 0.2621729105086183,
+            "MRR@K": 0.22349412047036238,
+            "Precision@K": 0.07595392368610512
+          },
+          "full_hybrid": {
+            "HR@K": 0.41828653707703384,
+            "NDCG@K": 0.3011727390901468,
+            "MRR@K": 0.26302495800335973,
+            "Precision@K": 0.08365730741540676
+          }
+        },
+        "tuned_params": {
+          "feature_names": [
+            "market_prevalence",
+            "skill_breadth",
+            "digital_skill_density",
+            "innovation_intensity",
+            "role_level",
+            "transition_mobility"
+          ],
+          "global_entropy_weights": {
+            "market_prevalence": 0.3082523004425262,
+            "skill_breadth": 0.1106766792827823,
+            "digital_skill_density": 0.05137661020152368,
+            "innovation_intensity": 0.22948355325592637,
+            "role_level": 0.1589533631455873,
+            "transition_mobility": 0.14125749367165413
+          },
+          "nmf_components": 6,
+          "svd_components": 6,
+          "gru_hidden_dim": 32,
+          "sasrec_hidden_dim": 64,
+          "topsis_alpha": 0.75,
+          "hybrid_cf_topsis": {
+            "alpha": 1.0,
+            "cf_weight": 0.7,
+            "topsis_weight": 0.30000000000000004
+          },
+          "hybrid_rl_topsis": {
+            "alpha": 0.5,
+            "rl_weight": 0.5,
+            "topsis_weight": 0.5
+          },
+          "full_hybrid": {
+            "alpha": 1.0,
+            "cf_weight": 0.6,
+            "rl_weight": 0.1,
+            "topsis_weight": 0.30000000000000004
+          }
+        }
+      },
+      {
+        "seed": 102,
+        "mode": "repeated",
+        "metrics": {
+          "popularity": {
+            "HR@K": 0.28797696184305255,
+            "NDCG@K": 0.2014314064752886,
+            "MRR@K": 0.1732421406287497,
+            "Precision@K": 0.05759539236861051
+          },
+          "repeat_last": {
+            "HR@K": 0.36105111591072714,
+            "NDCG@K": 0.2802415052276857,
+            "MRR@K": 0.25344372450203984,
+            "Precision@K": 0.07221022318214543
+          },
+          "item_markov": {
+            "HR@K": 0.39488840892728583,
+            "NDCG@K": 0.292858126503201,
+            "MRR@K": 0.25925125989920805,
+            "Precision@K": 0.07897768178545717
+          },
+          "transition_cf": {
+            "HR@K": 0.39776817854571633,
+            "NDCG@K": 0.29023035479009146,
+            "MRR@K": 0.25485361171106313,
+            "Precision@K": 0.07955363570914327
+          },
+          "nmf": {
+            "HR@K": 0.33117350611951046,
+            "NDCG@K": 0.24080645295188594,
+            "MRR@K": 0.21127309815214781,
+            "Precision@K": 0.06623470122390208
+          },
+          "svd": {
+            "HR@K": 0.3207343412526998,
+            "NDCG@K": 0.23489058152071018,
+            "MRR@K": 0.20688144948404127,
+            "Precision@K": 0.06414686825053996
+          },
+          "gru4rec": {
+            "HR@K": 0.3855291576673866,
+            "NDCG@K": 0.28289000210789245,
+            "MRR@K": 0.24928605711543075,
+            "Precision@K": 0.07710583153347732
+          },
+          "sasrec": {
+            "HR@K": 0.4060475161987041,
+            "NDCG@K": 0.2933482009710911,
+            "MRR@K": 0.25652747780177587,
+            "Precision@K": 0.08120950323974083
+          },
+          "topsis": {
+            "HR@K": 0.3210943124550036,
+            "NDCG@K": 0.2117710210495676,
+            "MRR@K": 0.17609191264698823,
+            "Precision@K": 0.06421886249100073
+          },
+          "rl_bandit": {
+            "HR@K": 0.3927285817134629,
+            "NDCG@K": 0.27331972753920974,
+            "MRR@K": 0.2339752819774418,
+            "Precision@K": 0.07854571634269258
+          },
+          "hybrid_cf_topsis": {
+            "HR@K": 0.4035277177825774,
+            "NDCG@K": 0.2904985807779667,
+            "MRR@K": 0.25342572594192464,
+            "Precision@K": 0.08070554355651548
+          },
+          "hybrid_rl_topsis": {
+            "HR@K": 0.3718502519798416,
+            "NDCG@K": 0.2474620057054381,
+            "MRR@K": 0.2062335013198944,
+            "Precision@K": 0.07437005039596833
+          },
+          "full_hybrid": {
+            "HR@K": 0.4215262778977682,
+            "NDCG@K": 0.30066531980861044,
+            "MRR@K": 0.2611351091912647,
+            "Precision@K": 0.08430525557955364
+          }
+        },
+        "tuned_params": {
+          "feature_names": [
+            "market_prevalence",
+            "skill_breadth",
+            "digital_skill_density",
+            "innovation_intensity",
+            "role_level",
+            "transition_mobility"
+          ],
+          "global_entropy_weights": {
+            "market_prevalence": 0.3205223770986139,
+            "skill_breadth": 0.1101917611766956,
+            "digital_skill_density": 0.05115150904491578,
+            "innovation_intensity": 0.2284780954599025,
+            "role_level": 0.15825692588064436,
+            "transition_mobility": 0.13139933133922785
+          },
+          "nmf_components": 6,
+          "svd_components": 6,
+          "gru_hidden_dim": 64,
+          "sasrec_hidden_dim": 32,
+          "topsis_alpha": 0.75,
+          "hybrid_cf_topsis": {
+            "alpha": 1.0,
+            "cf_weight": 0.7,
+            "topsis_weight": 0.30000000000000004
+          },
+          "hybrid_rl_topsis": {
+            "alpha": 0.5,
+            "rl_weight": 0.5,
+            "topsis_weight": 0.5
+          },
+          "full_hybrid": {
+            "alpha": 1.0,
+            "cf_weight": 0.7,
+            "rl_weight": 0.2,
+            "topsis_weight": 0.10000000000000009
+          }
+        }
+      },
+      {
+        "seed": 103,
+        "mode": "repeated",
+        "metrics": {
+          "popularity": {
+            "HR@K": 0.2919366450683945,
+            "NDCG@K": 0.20281097748012003,
+            "MRR@K": 0.17377609791216703,
+            "Precision@K": 0.058387329013678914
+          },
+          "repeat_last": {
+            "HR@K": 0.3646508279337653,
+            "NDCG@K": 0.2824162624093259,
+            "MRR@K": 0.2551295896328294,
+            "Precision@K": 0.07293016558675307
+          },
+          "item_markov": {
+            "HR@K": 0.3938084953203744,
+            "NDCG@K": 0.2903983077776353,
+            "MRR@K": 0.2564674826013919,
+            "Precision@K": 0.07876169906407487
+          },
+          "transition_cf": {
+            "HR@K": 0.4006479481641469,
+            "NDCG@K": 0.29043099174506926,
+            "MRR@K": 0.25438564914806816,
+            "Precision@K": 0.08012958963282939
+          },
+          "nmf": {
+            "HR@K": 0.34053275737940963,
+            "NDCG@K": 0.24530129676417387,
+            "MRR@K": 0.2143868490520758,
+            "Precision@K": 0.06810655147588192
+          },
+          "svd": {
+            "HR@K": 0.3416126709863211,
+            "NDCG@K": 0.24523735945163228,
+            "MRR@K": 0.21400287976961843,
+            "Precision@K": 0.06832253419726422
+          },
+          "gru4rec": {
+            "HR@K": 0.38408927285817135,
+            "NDCG@K": 0.27752309748770004,
+            "MRR@K": 0.24264458843292538,
+            "Precision@K": 0.07681785457163427
+          },
+          "sasrec": {
+            "HR@K": 0.4146868250539957,
+            "NDCG@K": 0.29363256798049064,
+            "MRR@K": 0.25381569474442045,
+            "Precision@K": 0.08293736501079914
+          },
+          "topsis": {
+            "HR@K": 0.31533477321814257,
+            "NDCG@K": 0.2099323121970058,
+            "MRR@K": 0.1754139668826494,
+            "Precision@K": 0.06306695464362852
+          },
+          "rl_bandit": {
+            "HR@K": 0.38156947444204464,
+            "NDCG@K": 0.27248049329576013,
+            "MRR@K": 0.23665106791456686,
+            "Precision@K": 0.07631389488840892
+          },
+          "hybrid_cf_topsis": {
+            "HR@K": 0.4035277177825774,
+            "NDCG@K": 0.2932313917945076,
+            "MRR@K": 0.2571874250059995,
+            "Precision@K": 0.08070554355651548
+          },
+          "hybrid_rl_topsis": {
+            "HR@K": 0.3923686105111591,
+            "NDCG@K": 0.2717477016553414,
+            "MRR@K": 0.232043436525078,
+            "Precision@K": 0.07847372210223182
+          },
+          "full_hybrid": {
+            "HR@K": 0.42296616270698345,
+            "NDCG@K": 0.30647443211111236,
+            "MRR@K": 0.2683765298776098,
+            "Precision@K": 0.08459323254139668
+          }
+        },
+        "tuned_params": {
+          "feature_names": [
+            "market_prevalence",
+            "skill_breadth",
+            "digital_skill_density",
+            "innovation_intensity",
+            "role_level",
+            "transition_mobility"
+          ],
+          "global_entropy_weights": {
+            "market_prevalence": 0.3028062618422175,
+            "skill_breadth": 0.10657246813577821,
+            "digital_skill_density": 0.049471417005894615,
+            "innovation_intensity": 0.22097363984480364,
+            "role_level": 0.15305891303104183,
+            "transition_mobility": 0.16711730014026427
+          },
+          "nmf_components": 6,
+          "svd_components": 6,
+          "gru_hidden_dim": 64,
+          "sasrec_hidden_dim": 64,
+          "topsis_alpha": 0.75,
+          "hybrid_cf_topsis": {
+            "alpha": 0.75,
+            "cf_weight": 0.7,
+            "topsis_weight": 0.30000000000000004
+          },
+          "hybrid_rl_topsis": {
+            "alpha": 0.5,
+            "rl_weight": 0.5,
+            "topsis_weight": 0.5
+          },
+          "full_hybrid": {
+            "alpha": 1.0,
+            "cf_weight": 0.4,
+            "rl_weight": 0.4,
+            "topsis_weight": 0.19999999999999996
+          }
+        }
+      },
+      {
+        "seed": 104,
+        "mode": "repeated",
+        "metrics": {
+          "popularity": {
+            "HR@K": 0.29013678905687545,
+            "NDCG@K": 0.2016131389376542,
+            "MRR@K": 0.1728161747060235,
+            "Precision@K": 0.05802735781137509
+          },
+          "repeat_last": {
+            "HR@K": 0.36141108711303094,
+            "NDCG@K": 0.2780767631169004,
+            "MRR@K": 0.25045596352291816,
+            "Precision@K": 0.0722822174226062
+          },
+          "item_markov": {
+            "HR@K": 0.38624910007199426,
+            "NDCG@K": 0.2805978207774244,
+            "MRR@K": 0.24592632589392846,
+            "Precision@K": 0.07724982001439885
+          },
+          "transition_cf": {
+            "HR@K": 0.39452843772498203,
+            "NDCG@K": 0.2792684184773612,
+            "MRR@K": 0.2415646748260139,
+            "Precision@K": 0.0789056875449964
+          },
+          "nmf": {
+            "HR@K": 0.3491720662347012,
+            "NDCG@K": 0.2472632186812462,
+            "MRR@K": 0.21424886009119273,
+            "Precision@K": 0.06983441324694024
+          },
+          "svd": {
+            "HR@K": 0.3434125269978402,
+            "NDCG@K": 0.24590907712878482,
+            "MRR@K": 0.21421886249100072,
+            "Precision@K": 0.06868250539956804
+          },
+          "gru4rec": {
+            "HR@K": 0.39164866810655147,
+            "NDCG@K": 0.27965523017341337,
+            "MRR@K": 0.24294456443484522,
+            "Precision@K": 0.0783297336213103
+          },
+          "sasrec": {
+            "HR@K": 0.3966882649388049,
+            "NDCG@K": 0.28094329794709716,
+            "MRR@K": 0.2430945524358051,
+            "Precision@K": 0.07933765298776096
+          },
+          "topsis": {
+            "HR@K": 0.320374370050396,
+            "NDCG@K": 0.21074082164713642,
+            "MRR@K": 0.17490400767938566,
+            "Precision@K": 0.06407487401007919
+          },
+          "rl_bandit": {
+            "HR@K": 0.39056875449964,
+            "NDCG@K": 0.268021468856187,
+            "MRR@K": 0.22801775857931367,
+            "Precision@K": 0.078113750899928
+          },
+          "hybrid_cf_topsis": {
+            "HR@K": 0.39704823614110873,
+            "NDCG@K": 0.28312401967425377,
+            "MRR@K": 0.2458603311735061,
+            "Precision@K": 0.07940964722822175
+          },
+          "hybrid_rl_topsis": {
+            "HR@K": 0.3758099352051836,
+            "NDCG@K": 0.25449884469823864,
+            "MRR@K": 0.21422486201103913,
+            "Precision@K": 0.07516198704103672
+          },
+          "full_hybrid": {
+            "HR@K": 0.4168466522678186,
+            "NDCG@K": 0.29281742478507705,
+            "MRR@K": 0.25244180465562754,
+            "Precision@K": 0.08336933045356372
+          }
+        },
+        "tuned_params": {
+          "feature_names": [
+            "market_prevalence",
+            "skill_breadth",
+            "digital_skill_density",
+            "innovation_intensity",
+            "role_level",
+            "transition_mobility"
+          ],
+          "global_entropy_weights": {
+            "market_prevalence": 0.32169975195640954,
+            "skill_breadth": 0.11276444435482853,
+            "digital_skill_density": 0.05234576009826767,
+            "innovation_intensity": 0.23381244846855426,
+            "role_level": 0.1619518022188426,
+            "transition_mobility": 0.11742579290309738
+          },
+          "nmf_components": 6,
+          "svd_components": 6,
+          "gru_hidden_dim": 32,
+          "sasrec_hidden_dim": 32,
+          "topsis_alpha": 0.75,
+          "hybrid_cf_topsis": {
+            "alpha": 0.25,
+            "cf_weight": 0.7,
+            "topsis_weight": 0.30000000000000004
+          },
+          "hybrid_rl_topsis": {
+            "alpha": 0.5,
+            "rl_weight": 0.5,
+            "topsis_weight": 0.5
+          },
+          "full_hybrid": {
+            "alpha": 0.25,
+            "cf_weight": 0.5,
+            "rl_weight": 0.4,
+            "topsis_weight": 0.09999999999999998
+          }
+        }
+      },
+      {
+        "seed": 105,
+        "mode": "repeated",
+        "metrics": {
+          "popularity": {
+            "HR@K": 0.29013678905687545,
+            "NDCG@K": 0.2028962553743383,
+            "MRR@K": 0.17442404607631387,
+            "Precision@K": 0.05802735781137509
+          },
+          "repeat_last": {
+            "HR@K": 0.3675305975521958,
+            "NDCG@K": 0.28688623766954563,
+            "MRR@K": 0.260097192224622,
+            "Precision@K": 0.07350611951043917
+          },
+          "item_markov": {
+            "HR@K": 0.398488120950324,
+            "NDCG@K": 0.2955454251125961,
+            "MRR@K": 0.26163306935445163,
+            "Precision@K": 0.07969762419006479
+          },
+          "transition_cf": {
+            "HR@K": 0.39812814974802013,
+            "NDCG@K": 0.2905631564047439,
+            "MRR@K": 0.2553095752339813,
+            "Precision@K": 0.07962562994960404
+          },
+          "nmf": {
+            "HR@K": 0.3282937365010799,
+            "NDCG@K": 0.2410431015702624,
+            "MRR@K": 0.21240700743940483,
+            "Precision@K": 0.06565874730021598
+          },
+          "svd": {
+            "HR@K": 0.3142548596112311,
+            "NDCG@K": 0.23384192369400977,
+            "MRR@K": 0.2074334053275738,
+            "Precision@K": 0.06285097192224623
+          },
+          "gru4rec": {
+            "HR@K": 0.3833693304535637,
+            "NDCG@K": 0.2756182014436589,
+            "MRR@K": 0.24032277417806575,
+            "Precision@K": 0.07667386609071274
+          },
+          "sasrec": {
+            "HR@K": 0.40532757379409645,
+            "NDCG@K": 0.29989886070154503,
+            "MRR@K": 0.2651847852171826,
+            "Precision@K": 0.08106551475881929
+          },
+          "topsis": {
+            "HR@K": 0.3171346292296616,
+            "NDCG@K": 0.2139368608402825,
+            "MRR@K": 0.18004559635229184,
+            "Precision@K": 0.06342692584593233
+          },
+          "rl_bandit": {
+            "HR@K": 0.38948884089272856,
+            "NDCG@K": 0.2797459561435591,
+            "MRR@K": 0.2437185025197984,
+            "Precision@K": 0.07789776817854571
+          },
+          "hybrid_cf_topsis": {
+            "HR@K": 0.38624910007199426,
+            "NDCG@K": 0.28844872851691167,
+            "MRR@K": 0.25619750419966403,
+            "Precision@K": 0.07724982001439884
+          },
+          "hybrid_rl_topsis": {
+            "HR@K": 0.3855291576673866,
+            "NDCG@K": 0.26656327012504094,
+            "MRR@K": 0.22687185025197984,
+            "Precision@K": 0.07710583153347732
+          },
+          "full_hybrid": {
+            "HR@K": 0.4136069114470842,
+            "NDCG@K": 0.30356259374052247,
+            "MRR@K": 0.26745860331173504,
+            "Precision@K": 0.08272138228941685
+          }
+        },
+        "tuned_params": {
+          "feature_names": [
+            "market_prevalence",
+            "skill_breadth",
+            "digital_skill_density",
+            "innovation_intensity",
+            "role_level",
+            "transition_mobility"
+          ],
+          "global_entropy_weights": {
+            "market_prevalence": 0.32864150141537163,
+            "skill_breadth": 0.11116336580361205,
+            "digital_skill_density": 0.051602532264175376,
+            "innovation_intensity": 0.23049267778735918,
+            "role_level": 0.15965234020005653,
+            "transition_mobility": 0.11844758252942521
+          },
+          "nmf_components": 6,
+          "svd_components": 6,
+          "gru_hidden_dim": 32,
+          "sasrec_hidden_dim": 32,
+          "topsis_alpha": 0.75,
+          "hybrid_cf_topsis": {
+            "alpha": 0.25,
+            "cf_weight": 0.7,
+            "topsis_weight": 0.30000000000000004
+          },
+          "hybrid_rl_topsis": {
+            "alpha": 0.0,
+            "rl_weight": 0.5,
+            "topsis_weight": 0.5
+          },
+          "full_hybrid": {
+            "alpha": 0.5,
+            "cf_weight": 0.5,
+            "rl_weight": 0.3,
+            "topsis_weight": 0.19999999999999996
+          }
+        }
+      },
+      {
+        "seed": 106,
+        "mode": "repeated",
+        "metrics": {
+          "popularity": {
+            "HR@K": 0.2840172786177106,
+            "NDCG@K": 0.19793662180116153,
+            "MRR@K": 0.16991840652747778,
+            "Precision@K": 0.05680345572354212
+          },
+          "repeat_last": {
+            "HR@K": 0.35529157667386607,
+            "NDCG@K": 0.27595299247738286,
+            "MRR@K": 0.24969402447804176,
+            "Precision@K": 0.07105831533477322
+          },
+          "item_markov": {
+            "HR@K": 0.39704823614110873,
+            "NDCG@K": 0.2925053193477066,
+            "MRR@K": 0.25814134869210464,
+            "Precision@K": 0.07940964722822175
+          },
+          "transition_cf": {
+            "HR@K": 0.40496760259179265,
+            "NDCG@K": 0.2955425711673868,
+            "MRR@K": 0.25964722822174224,
+            "Precision@K": 0.08099352051835854
+          },
+          "nmf": {
+            "HR@K": 0.3531317494600432,
+            "NDCG@K": 0.25405562331068415,
+            "MRR@K": 0.22186825053995676,
+            "Precision@K": 0.07062634989200864
+          },
+          "svd": {
+            "HR@K": 0.34989200863930886,
+            "NDCG@K": 0.25130839109786146,
+            "MRR@K": 0.21933645308375332,
+            "Precision@K": 0.06997840172786177
+          },
+          "gru4rec": {
+            "HR@K": 0.39128869690424767,
+            "NDCG@K": 0.2899042182912474,
+            "MRR@K": 0.25668346532277414,
+            "Precision@K": 0.07825773938084954
+          },
+          "sasrec": {
+            "HR@K": 0.4110871130309575,
+            "NDCG@K": 0.2974407774451597,
+            "MRR@K": 0.2601151907847372,
+            "Precision@K": 0.08221742260619151
+          },
+          "topsis": {
+            "HR@K": 0.31281497480201587,
+            "NDCG@K": 0.20704147040414328,
+            "MRR@K": 0.1724922006239501,
+            "Precision@K": 0.06256299496040317
+          },
+          "rl_bandit": {
+            "HR@K": 0.3758099352051836,
+            "NDCG@K": 0.26831838717978096,
+            "MRR@K": 0.23304535637149026,
+            "Precision@K": 0.07516198704103672
+          },
+          "hybrid_cf_topsis": {
+            "HR@K": 0.40280777537796975,
+            "NDCG@K": 0.2941854468561067,
+            "MRR@K": 0.2585253179745621,
+            "Precision@K": 0.08056155507559394
+          },
+          "hybrid_rl_topsis": {
+            "HR@K": 0.38696904247660185,
+            "NDCG@K": 0.25795017309049156,
+            "MRR@K": 0.21560475161987042,
+            "Precision@K": 0.07739380849532038
+          },
+          "full_hybrid": {
+            "HR@K": 0.42332613390928725,
+            "NDCG@K": 0.3024211752598792,
+            "MRR@K": 0.2628449724022078,
+            "Precision@K": 0.08466522678185745
+          }
+        },
+        "tuned_params": {
+          "feature_names": [
+            "market_prevalence",
+            "skill_breadth",
+            "digital_skill_density",
+            "innovation_intensity",
+            "role_level",
+            "transition_mobility"
+          ],
+          "global_entropy_weights": {
+            "market_prevalence": 0.3154696308969998,
+            "skill_breadth": 0.11021037796680914,
+            "digital_skill_density": 0.05116015104226395,
+            "innovation_intensity": 0.22851669661032697,
+            "role_level": 0.15828366323325288,
+            "transition_mobility": 0.13635948025034725
+          },
+          "nmf_components": 6,
+          "svd_components": 6,
+          "gru_hidden_dim": 64,
+          "sasrec_hidden_dim": 32,
+          "topsis_alpha": 0.75,
+          "hybrid_cf_topsis": {
+            "alpha": 1.0,
+            "cf_weight": 0.7,
+            "topsis_weight": 0.30000000000000004
+          },
+          "hybrid_rl_topsis": {
+            "alpha": 0.25,
+            "rl_weight": 0.5,
+            "topsis_weight": 0.5
+          },
+          "full_hybrid": {
+            "alpha": 1.0,
+            "cf_weight": 0.6,
+            "rl_weight": 0.2,
+            "topsis_weight": 0.20000000000000007
+          }
+        }
+      },
+      {
+        "seed": 107,
+        "mode": "repeated",
+        "metrics": {
+          "popularity": {
+            "HR@K": 0.28977681785457166,
+            "NDCG@K": 0.20246678156609516,
+            "MRR@K": 0.17403407727381812,
+            "Precision@K": 0.057955363570914326
+          },
+          "repeat_last": {
+            "HR@K": 0.36645068394528435,
+            "NDCG@K": 0.2864843015677105,
+            "MRR@K": 0.25992920566354694,
+            "Precision@K": 0.07329013678905688
+          },
+          "item_markov": {
+            "HR@K": 0.3988480921526278,
+            "NDCG@K": 0.29732293840027524,
+            "MRR@K": 0.263798896088313,
+            "Precision@K": 0.07976961843052556
+          },
+          "transition_cf": {
+            "HR@K": 0.4038876889848812,
+            "NDCG@K": 0.29545129496574857,
+            "MRR@K": 0.2596772258219342,
+            "Precision@K": 0.08077753779697626
+          },
+          "nmf": {
+            "HR@K": 0.3419726421886249,
+            "NDCG@K": 0.24934037874282713,
+            "MRR@K": 0.21906647468202542,
+            "Precision@K": 0.06839452843772498
+          },
+          "svd": {
+            "HR@K": 0.33369330453563717,
+            "NDCG@K": 0.2446380014898226,
+            "MRR@K": 0.21552675785937123,
+            "Precision@K": 0.06673866090712745
+          },
+          "gru4rec": {
+            "HR@K": 0.3966882649388049,
+            "NDCG@K": 0.290561568557305,
+            "MRR@K": 0.2558735301175906,
+            "Precision@K": 0.07933765298776098
+          },
+          "sasrec": {
+            "HR@K": 0.3966882649388049,
+            "NDCG@K": 0.28630005600469166,
+            "MRR@K": 0.2501799856011519,
+            "Precision@K": 0.07933765298776098
+          },
+          "topsis": {
+            "HR@K": 0.3254139668826494,
+            "NDCG@K": 0.21647663196267727,
+            "MRR@K": 0.18092152627789776,
+            "Precision@K": 0.06508279337652988
+          },
+          "rl_bandit": {
+            "HR@K": 0.38156947444204464,
+            "NDCG@K": 0.2701049136391818,
+            "MRR@K": 0.23328533717302613,
+            "Precision@K": 0.07631389488840892
+          },
+          "hybrid_cf_topsis": {
+            "HR@K": 0.39704823614110873,
+            "NDCG@K": 0.29602409904124205,
+            "MRR@K": 0.2630609551235901,
+            "Precision@K": 0.07940964722822175
+          },
+          "hybrid_rl_topsis": {
+            "HR@K": 0.4035277177825774,
+            "NDCG@K": 0.27109182825912426,
+            "MRR@K": 0.22741180705543557,
+            "Precision@K": 0.08070554355651548
+          },
+          "full_hybrid": {
+            "HR@K": 0.41216702663786897,
+            "NDCG@K": 0.30549558206288513,
+            "MRR@K": 0.27039236861051114,
+            "Precision@K": 0.08243340532757379
+          }
+        },
+        "tuned_params": {
+          "feature_names": [
+            "market_prevalence",
+            "skill_breadth",
+            "digital_skill_density",
+            "innovation_intensity",
+            "role_level",
+            "transition_mobility"
+          ],
+          "global_entropy_weights": {
+            "market_prevalence": 0.3154901594827869,
+            "skill_breadth": 0.10993996206820954,
+            "digital_skill_density": 0.05103462277104478,
+            "innovation_intensity": 0.22795600034016714,
+            "role_level": 0.1578952931013607,
+            "transition_mobility": 0.13768396223643098
+          },
+          "nmf_components": 6,
+          "svd_components": 6,
+          "gru_hidden_dim": 32,
+          "sasrec_hidden_dim": 16,
+          "topsis_alpha": 0.75,
+          "hybrid_cf_topsis": {
+            "alpha": 0.5,
+            "cf_weight": 0.5,
+            "topsis_weight": 0.5
+          },
+          "hybrid_rl_topsis": {
+            "alpha": 0.5,
+            "rl_weight": 0.5,
+            "topsis_weight": 0.5
+          },
+          "full_hybrid": {
+            "alpha": 0.0,
+            "cf_weight": 0.4,
+            "rl_weight": 0.3,
+            "topsis_weight": 0.29999999999999993
+          }
+        }
+      },
+      {
+        "seed": 108,
+        "mode": "repeated",
+        "metrics": {
+          "popularity": {
+            "HR@K": 0.2908567314614831,
+            "NDCG@K": 0.20601639002266095,
+            "MRR@K": 0.1783657307415407,
+            "Precision@K": 0.05817134629229662
+          },
+          "repeat_last": {
+            "HR@K": 0.36105111591072714,
+            "NDCG@K": 0.28170317692995095,
+            "MRR@K": 0.25535157187425006,
+            "Precision@K": 0.07221022318214544
+          },
+          "item_markov": {
+            "HR@K": 0.40280777537796975,
+            "NDCG@K": 0.2966105279182034,
+            "MRR@K": 0.2617410607151428,
+            "Precision@K": 0.08056155507559395
+          },
+          "transition_cf": {
+            "HR@K": 0.4056875449964003,
+            "NDCG@K": 0.29621289369012926,
+            "MRR@K": 0.2603011759059275,
+            "Precision@K": 0.08113750899928006
+          },
+          "nmf": {
+            "HR@K": 0.3394528437724982,
+            "NDCG@K": 0.24655229738944404,
+            "MRR@K": 0.2161867050635949,
+            "Precision@K": 0.06789056875449964
+          },
+          "svd": {
+            "HR@K": 0.3308135349172066,
+            "NDCG@K": 0.2394984669910127,
+            "MRR@K": 0.20969522438204943,
+            "Precision@K": 0.06616270698344133
+          },
+          "gru4rec": {
+            "HR@K": 0.3826493880489561,
+            "NDCG@K": 0.2781769509167283,
+            "MRR@K": 0.24374850011999039,
+            "Precision@K": 0.07652987760979123
+          },
+          "sasrec": {
+            "HR@K": 0.4193664506839453,
+            "NDCG@K": 0.303751526159949,
+            "MRR@K": 0.265778737700984,
+            "Precision@K": 0.08387329013678906
+          },
+          "topsis": {
+            "HR@K": 0.3146148308135349,
+            "NDCG@K": 0.2133620276696219,
+            "MRR@K": 0.1802735781137509,
+            "Precision@K": 0.06292296616270698
+          },
+          "rl_bandit": {
+            "HR@K": 0.3801295896328294,
+            "NDCG@K": 0.2757361295434075,
+            "MRR@K": 0.2413666906647468,
+            "Precision@K": 0.07602591792656586
+          },
+          "hybrid_cf_topsis": {
+            "HR@K": 0.3963282937365011,
+            "NDCG@K": 0.28962622764774315,
+            "MRR@K": 0.2546796256299496,
+            "Precision@K": 0.07926565874730021
+          },
+          "hybrid_rl_topsis": {
+            "HR@K": 0.3851691864650828,
+            "NDCG@K": 0.2588912385502562,
+            "MRR@K": 0.21760859131269497,
+            "Precision@K": 0.07703383729301656
+          },
+          "full_hybrid": {
+            "HR@K": 0.42368610511159105,
+            "NDCG@K": 0.3036830613633943,
+            "MRR@K": 0.26430885529157666,
+            "Precision@K": 0.0847372210223182
+          }
+        },
+        "tuned_params": {
+          "feature_names": [
+            "market_prevalence",
+            "skill_breadth",
+            "digital_skill_density",
+            "innovation_intensity",
+            "role_level",
+            "transition_mobility"
+          ],
+          "global_entropy_weights": {
+            "market_prevalence": 0.3216330382399627,
+            "skill_breadth": 0.11091581008885246,
+            "digital_skill_density": 0.051487615792676744,
+            "innovation_intensity": 0.2299793811704026,
+            "role_level": 0.15929680176429983,
+            "transition_mobility": 0.1266873529438057
+          },
+          "nmf_components": 6,
+          "svd_components": 6,
+          "gru_hidden_dim": 32,
+          "sasrec_hidden_dim": 32,
+          "topsis_alpha": 0.75,
+          "hybrid_cf_topsis": {
+            "alpha": 0.5,
+            "cf_weight": 0.7,
+            "topsis_weight": 0.30000000000000004
+          },
+          "hybrid_rl_topsis": {
+            "alpha": 0.5,
+            "rl_weight": 0.5,
+            "topsis_weight": 0.5
+          },
+          "full_hybrid": {
+            "alpha": 1.0,
+            "cf_weight": 0.7,
+            "rl_weight": 0.2,
+            "topsis_weight": 0.10000000000000009
+          }
+        }
+      },
+      {
+        "seed": 109,
+        "mode": "repeated",
+        "metrics": {
+          "popularity": {
+            "HR@K": 0.29049676025917925,
+            "NDCG@K": 0.20535017493571367,
+            "MRR@K": 0.17753779697624192,
+            "Precision@K": 0.058099352051835855
+          },
+          "repeat_last": {
+            "HR@K": 0.3650107991360691,
+            "NDCG@K": 0.2849109211057844,
+            "MRR@K": 0.2582973362131029,
+            "Precision@K": 0.07300215982721382
+          },
+          "item_markov": {
+            "HR@K": 0.4107271418286537,
+            "NDCG@K": 0.2999914881236086,
+            "MRR@K": 0.26357091432685387,
+            "Precision@K": 0.08214542836573074
+          },
+          "transition_cf": {
+            "HR@K": 0.4172066234701224,
+            "NDCG@K": 0.3064997428830298,
+            "MRR@K": 0.26997840172786175,
+            "Precision@K": 0.08344132469402449
+          },
+          "nmf": {
+            "HR@K": 0.34701223902087835,
+            "NDCG@K": 0.2485000036534782,
+            "MRR@K": 0.21628869690424762,
+            "Precision@K": 0.06940244780417568
+          },
+          "svd": {
+            "HR@K": 0.343772498200144,
+            "NDCG@K": 0.24472966032752064,
+            "MRR@K": 0.2125389968802496,
+            "Precision@K": 0.0687544996400288
+          },
+          "gru4rec": {
+            "HR@K": 0.40244780417566595,
+            "NDCG@K": 0.2900677501995928,
+            "MRR@K": 0.25315574754019676,
+            "Precision@K": 0.0804895608351332
+          },
+          "sasrec": {
+            "HR@K": 0.4164866810655148,
+            "NDCG@K": 0.29837505253724483,
+            "MRR@K": 0.2596172306215503,
+            "Precision@K": 0.08329733621310295
+          },
+          "topsis": {
+            "HR@K": 0.3092152627789777,
+            "NDCG@K": 0.2084949455568897,
+            "MRR@K": 0.17582793376529876,
+            "Precision@K": 0.06184305255579554
+          },
+          "rl_bandit": {
+            "HR@K": 0.39740820734341253,
+            "NDCG@K": 0.28471516719011714,
+            "MRR@K": 0.24778617710583153,
+            "Precision@K": 0.07948164146868252
+          },
+          "hybrid_cf_topsis": {
+            "HR@K": 0.4089272858171346,
+            "NDCG@K": 0.3044560746923853,
+            "MRR@K": 0.269966402687785,
+            "Precision@K": 0.08178545716342692
+          },
+          "hybrid_rl_topsis": {
+            "HR@K": 0.398488120950324,
+            "NDCG@K": 0.2782889173036079,
+            "MRR@K": 0.23880489560835133,
+            "Precision@K": 0.07969762419006479
+          },
+          "full_hybrid": {
+            "HR@K": 0.44636429085673146,
+            "NDCG@K": 0.32309665605780374,
+            "MRR@K": 0.282481401487881,
+            "Precision@K": 0.0892728581713463
+          }
+        },
+        "tuned_params": {
+          "feature_names": [
+            "market_prevalence",
+            "skill_breadth",
+            "digital_skill_density",
+            "innovation_intensity",
+            "role_level",
+            "transition_mobility"
+          ],
+          "global_entropy_weights": {
+            "market_prevalence": 0.31089053534712296,
+            "skill_breadth": 0.10960021616580655,
+            "digital_skill_density": 0.05087691120155754,
+            "innovation_intensity": 0.22725155115183926,
+            "role_level": 0.15740735152096771,
+            "transition_mobility": 0.14397343461270595
+          },
+          "nmf_components": 6,
+          "svd_components": 6,
+          "gru_hidden_dim": 32,
+          "sasrec_hidden_dim": 32,
+          "topsis_alpha": 0.5,
+          "hybrid_cf_topsis": {
+            "alpha": 1.0,
+            "cf_weight": 0.7,
+            "topsis_weight": 0.30000000000000004
+          },
+          "hybrid_rl_topsis": {
+            "alpha": 0.25,
+            "rl_weight": 0.5,
+            "topsis_weight": 0.5
+          },
+          "full_hybrid": {
+            "alpha": 0.25,
+            "cf_weight": 0.5,
+            "rl_weight": 0.4,
+            "topsis_weight": 0.09999999999999998
+          }
+        }
+      }
+    ],
+    "aggregated_results": {
+      "popularity": {
+        "HR@K": {
+          "mean": 0.2889488840892729,
+          "std": 0.0024838012958963316,
+          "values": [
+            0.2894168466522678,
+            0.2847372210223182,
+            0.28797696184305255,
+            0.2919366450683945,
+            0.29013678905687545,
+            0.29013678905687545,
+            0.2840172786177106,
+            0.28977681785457166,
+            0.2908567314614831,
+            0.29049676025917925
+          ]
+        },
+        "NDCG@K": {
+          "mean": 0.20260905597367818,
+          "std": 0.0022096697687996425,
+          "values": [
+            0.20441035287230244,
+            0.20115846027144696,
+            0.2014314064752886,
+            0.20281097748012003,
+            0.2016131389376542,
+            0.2028962553743383,
+            0.19793662180116153,
+            0.20246678156609516,
+            0.20601639002266095,
+            0.20535017493571367
+          ]
+        },
+        "MRR@K": {
+          "mean": 0.17447144228461722,
+          "std": 0.0023574303824187275,
+          "values": [
+            0.17670986321094312,
+            0.17389008879289658,
+            0.1732421406287497,
+            0.17377609791216703,
+            0.1728161747060235,
+            0.17442404607631387,
+            0.16991840652747778,
+            0.17403407727381812,
+            0.1783657307415407,
+            0.17753779697624192
+          ]
+        },
+        "Precision@K": {
+          "mean": 0.05778977681785458,
+          "std": 0.0004967602591792672,
+          "values": [
+            0.05788336933045357,
+            0.05694744420446364,
+            0.05759539236861051,
+            0.058387329013678914,
+            0.05802735781137509,
+            0.05802735781137509,
+            0.05680345572354212,
+            0.057955363570914326,
+            0.05817134629229662,
+            0.058099352051835855
+          ]
+        }
+      },
+      "repeat_last": {
+        "HR@K": {
+          "mean": 0.3625989920806335,
+          "std": 0.003923686105111585,
+          "values": [
+            0.36645068394528435,
+            0.3570914326853852,
+            0.36105111591072714,
+            0.3646508279337653,
+            0.36141108711303094,
+            0.3675305975521958,
+            0.35529157667386607,
+            0.36645068394528435,
+            0.36105111591072714,
+            0.3650107991360691
+          ]
+        },
+        "NDCG@K": {
+          "mean": 0.281878745442762,
+          "std": 0.003395068280756082,
+          "values": [
+            0.2827702975213417,
+            0.2793449964019916,
+            0.2802415052276857,
+            0.2824162624093259,
+            0.2780767631169004,
+            0.28688623766954563,
+            0.27595299247738286,
+            0.2864843015677105,
+            0.28170317692995095,
+            0.2849109211057844
+          ]
+        },
+        "MRR@K": {
+          "mean": 0.2550893928485721,
+          "std": 0.0033855723224663872,
+          "values": [
+            0.254973602111831,
+            0.253521718262539,
+            0.25344372450203984,
+            0.2551295896328294,
+            0.25045596352291816,
+            0.260097192224622,
+            0.24969402447804176,
+            0.25992920566354694,
+            0.25535157187425006,
+            0.2582973362131029
+          ]
+        },
+        "Precision@K": {
+          "mean": 0.07251979841612671,
+          "std": 0.0007847372210223198,
+          "values": [
+            0.07329013678905688,
+            0.07141828653707703,
+            0.07221022318214543,
+            0.07293016558675307,
+            0.0722822174226062,
+            0.07350611951043917,
+            0.07105831533477322,
+            0.07329013678905688,
+            0.07221022318214544,
+            0.07300215982721382
+          ]
+        }
+      },
+      "item_markov": {
+        "HR@K": {
+          "mean": 0.3985961123110151,
+          "std": 0.006232909423839206,
+          "values": [
+            0.3988480921526278,
+            0.404247660187185,
+            0.39488840892728583,
+            0.3938084953203744,
+            0.38624910007199426,
+            0.398488120950324,
+            0.39704823614110873,
+            0.3988480921526278,
+            0.40280777537796975,
+            0.4107271418286537
+          ]
+        },
+        "NDCG@K": {
+          "mean": 0.2936753032581944,
+          "std": 0.005074165713688548,
+          "values": [
+            0.2944660299243165,
+            0.2964570486969771,
+            0.292858126503201,
+            0.2903983077776353,
+            0.2805978207774244,
+            0.2955454251125961,
+            0.2925053193477066,
+            0.29732293840027524,
+            0.2966105279182034,
+            0.2999914881236086
+          ]
+        },
+        "MRR@K": {
+          "mean": 0.2591822654187665,
+          "std": 0.004919592713051642,
+          "values": [
+            0.2601811855051596,
+            0.26111111111111107,
+            0.25925125989920805,
+            0.2564674826013919,
+            0.24592632589392846,
+            0.26163306935445163,
+            0.25814134869210464,
+            0.263798896088313,
+            0.2617410607151428,
+            0.26357091432685387
+          ]
+        },
+        "Precision@K": {
+          "mean": 0.07971922246220303,
+          "std": 0.0012465818847678422,
+          "values": [
+            0.07976961843052556,
+            0.08084953203743701,
+            0.07897768178545717,
+            0.07876169906407487,
+            0.07724982001439885,
+            0.07969762419006479,
+            0.07940964722822175,
+            0.07976961843052556,
+            0.08056155507559395,
+            0.08214542836573074
+          ]
+        }
+      },
+      "transition_cf": {
+        "HR@K": {
+          "mean": 0.40244780417566595,
+          "std": 0.005947700375038985,
+          "values": [
+            0.3992080633549316,
+            0.40244780417566595,
+            0.39776817854571633,
+            0.4006479481641469,
+            0.39452843772498203,
+            0.39812814974802013,
+            0.40496760259179265,
+            0.4038876889848812,
+            0.4056875449964003,
+            0.4172066234701224
+          ]
+        },
+        "NDCG@K": {
+          "mean": 0.2932158442663627,
+          "std": 0.006591491503257631,
+          "values": [
+            0.29087950295692483,
+            0.29707951558314194,
+            0.29023035479009146,
+            0.29043099174506926,
+            0.2792684184773612,
+            0.2905631564047439,
+            0.2955425711673868,
+            0.29545129496574857,
+            0.29621289369012926,
+            0.3064997428830298
+          ]
+        },
+        "MRR@K": {
+          "mean": 0.2573368130549556,
+          "std": 0.006899693472330569,
+          "values": [
+            0.25532757379409643,
+            0.2623230141588673,
+            0.25485361171106313,
+            0.25438564914806816,
+            0.2415646748260139,
+            0.2553095752339813,
+            0.25964722822174224,
+            0.2596772258219342,
+            0.2603011759059275,
+            0.26997840172786175
+          ]
+        },
+        "Precision@K": {
+          "mean": 0.0804895608351332,
+          "std": 0.0011895400750077997,
+          "values": [
+            0.07984161267098633,
+            0.08048956083513319,
+            0.07955363570914327,
+            0.08012958963282939,
+            0.0789056875449964,
+            0.07962562994960404,
+            0.08099352051835854,
+            0.08077753779697626,
+            0.08113750899928006,
+            0.08344132469402449
+          ]
+        }
+      },
+      "nmf": {
+        "HR@K": {
+          "mean": 0.34035277177825773,
+          "std": 0.007571812626950023,
+          "values": [
+            0.3329733621310295,
+            0.33981281497480204,
+            0.33117350611951046,
+            0.34053275737940963,
+            0.3491720662347012,
+            0.3282937365010799,
+            0.3531317494600432,
+            0.3419726421886249,
+            0.3394528437724982,
+            0.34701223902087835
+          ]
+        },
+        "NDCG@K": {
+          "mean": 0.24614648135820033,
+          "std": 0.00429490422729152,
+          "values": [
+            0.2396821858627694,
+            0.24892025465523196,
+            0.24080645295188594,
+            0.24530129676417387,
+            0.2472632186812462,
+            0.2410431015702624,
+            0.25405562331068415,
+            0.24934037874282713,
+            0.24655229738944404,
+            0.2485000036534782
+          ]
+        },
+        "MRR@K": {
+          "mean": 0.21540136789056874,
+          "std": 0.003680714540380772,
+          "values": [
+            0.20928125749940008,
+            0.21900647948164145,
+            0.21127309815214781,
+            0.2143868490520758,
+            0.21424886009119273,
+            0.21240700743940483,
+            0.22186825053995676,
+            0.21906647468202542,
+            0.2161867050635949,
+            0.21628869690424762
+          ]
+        },
+        "Precision@K": {
+          "mean": 0.06807055435565154,
+          "std": 0.0015143625253900045,
+          "values": [
+            0.06659467242620591,
+            0.06796256299496041,
+            0.06623470122390208,
+            0.06810655147588192,
+            0.06983441324694024,
+            0.06565874730021598,
+            0.07062634989200864,
+            0.06839452843772498,
+            0.06789056875449964,
+            0.06940244780417568
+          ]
+        }
+      },
+      "svd": {
+        "HR@K": {
+          "mean": 0.33524118070554354,
+          "std": 0.011612126441790688,
+          "values": [
+            0.3254139668826494,
+            0.3488120950323974,
+            0.3207343412526998,
+            0.3416126709863211,
+            0.3434125269978402,
+            0.3142548596112311,
+            0.34989200863930886,
+            0.33369330453563717,
+            0.3308135349172066,
+            0.343772498200144
+          ]
+        },
+        "NDCG@K": {
+          "mean": 0.24269528710868138,
+          "std": 0.006023070942793128,
+          "values": [
+            0.23592536219234156,
+            0.2509740471931179,
+            0.23489058152071018,
+            0.24523735945163228,
+            0.24590907712878482,
+            0.23384192369400977,
+            0.25130839109786146,
+            0.2446380014898226,
+            0.2394984669910127,
+            0.24472966032752064
+          ]
+        },
+        "MRR@K": {
+          "mean": 0.21254259659227262,
+          "std": 0.004487060409373323,
+          "values": [
+            0.20677945764338856,
+            0.2190124790016799,
+            0.20688144948404127,
+            0.21400287976961843,
+            0.21421886249100072,
+            0.2074334053275738,
+            0.21933645308375332,
+            0.21552675785937123,
+            0.20969522438204943,
+            0.2125389968802496
+          ]
+        },
+        "Precision@K": {
+          "mean": 0.06704823614110872,
+          "std": 0.0023224252883581368,
+          "values": [
+            0.06508279337652988,
+            0.06976241900647949,
+            0.06414686825053996,
+            0.06832253419726422,
+            0.06868250539956804,
+            0.06285097192224623,
+            0.06997840172786177,
+            0.06673866090712745,
+            0.06616270698344133,
+            0.0687544996400288
+          ]
+        }
+      },
+      "gru4rec": {
+        "HR@K": {
+          "mean": 0.3906767458603312,
+          "std": 0.006909290670312273,
+          "values": [
+            0.4010079193664507,
+            0.3880489560835133,
+            0.3855291576673866,
+            0.38408927285817135,
+            0.39164866810655147,
+            0.3833693304535637,
+            0.39128869690424767,
+            0.3966882649388049,
+            0.3826493880489561,
+            0.40244780417566595
+          ]
+        },
+        "NDCG@K": {
+          "mean": 0.2834630052319199,
+          "std": 0.005385256059145262,
+          "values": [
+            0.2872898597899285,
+            0.28294317335173247,
+            0.28289000210789245,
+            0.27752309748770004,
+            0.27965523017341337,
+            0.2756182014436589,
+            0.2899042182912474,
+            0.290561568557305,
+            0.2781769509167283,
+            0.2900677501995928
+          ]
+        },
+        "MRR@K": {
+          "mean": 0.24830153587712983,
+          "std": 0.005477265720926155,
+          "values": [
+            0.249970002399808,
+            0.24838612910967123,
+            0.24928605711543075,
+            0.24264458843292538,
+            0.24294456443484522,
+            0.24032277417806575,
+            0.25668346532277414,
+            0.2558735301175906,
+            0.24374850011999039,
+            0.25315574754019676
+          ]
+        },
+        "Precision@K": {
+          "mean": 0.07813534917206624,
+          "std": 0.0013818581340624561,
+          "values": [
+            0.08020158387329014,
+            0.07760979121670267,
+            0.07710583153347732,
+            0.07681785457163427,
+            0.0783297336213103,
+            0.07667386609071274,
+            0.07825773938084954,
+            0.07933765298776098,
+            0.07652987760979123,
+            0.0804895608351332
+          ]
+        }
+      },
+      "sasrec": {
+        "HR@K": {
+          "mean": 0.40928725701943847,
+          "std": 0.007775711269287618,
+          "values": [
+            0.41792656587473004,
+            0.4085673146148308,
+            0.4060475161987041,
+            0.4146868250539957,
+            0.3966882649388049,
+            0.40532757379409645,
+            0.4110871130309575,
+            0.3966882649388049,
+            0.4193664506839453,
+            0.4164866810655148
+          ]
+        },
+        "NDCG@K": {
+          "mean": 0.29450788852799037,
+          "std": 0.006508453996451222,
+          "values": [
+            0.29951806754030214,
+            0.29187047799233223,
+            0.2933482009710911,
+            0.29363256798049064,
+            0.28094329794709716,
+            0.29989886070154503,
+            0.2974407774451597,
+            0.28630005600469166,
+            0.303751526159949,
+            0.29837505253724483
+          ]
+        },
+        "MRR@K": {
+          "mean": 0.25684785217182626,
+          "std": 0.006597794254079114,
+          "values": [
+            0.260595152387809,
+            0.2535697144228462,
+            0.25652747780177587,
+            0.25381569474442045,
+            0.2430945524358051,
+            0.2651847852171826,
+            0.2601151907847372,
+            0.2501799856011519,
+            0.265778737700984,
+            0.2596172306215503
+          ]
+        },
+        "Precision@K": {
+          "mean": 0.08185745140388768,
+          "std": 0.0015551422538575244,
+          "values": [
+            0.08358531317494601,
+            0.08171346292296616,
+            0.08120950323974083,
+            0.08293736501079914,
+            0.07933765298776096,
+            0.08106551475881929,
+            0.08221742260619151,
+            0.07933765298776098,
+            0.08387329013678906,
+            0.08329733621310295
+          ]
+        }
+      },
+      "topsis": {
+        "HR@K": {
+          "mean": 0.3172786177105832,
+          "std": 0.004786940305220815,
+          "values": [
+            0.3228941684665227,
+            0.31389488840892726,
+            0.3210943124550036,
+            0.31533477321814257,
+            0.320374370050396,
+            0.3171346292296616,
+            0.31281497480201587,
+            0.3254139668826494,
+            0.3146148308135349,
+            0.3092152627789777
+          ]
+        },
+        "NDCG@K": {
+          "mean": 0.21173968401427468,
+          "std": 0.0028583633218309153,
+          "values": [
+            0.2153305063593128,
+            0.21031024245610938,
+            0.2117710210495676,
+            0.2099323121970058,
+            0.21074082164713642,
+            0.2139368608402825,
+            0.20704147040414328,
+            0.21647663196267727,
+            0.2133620276696219,
+            0.2084949455568897
+          ]
+        },
+        "MRR@K": {
+          "mean": 0.1772504199664027,
+          "std": 0.002726173521422295,
+          "values": [
+            0.1801295896328294,
+            0.17640388768898488,
+            0.17609191264698823,
+            0.1754139668826494,
+            0.17490400767938566,
+            0.18004559635229184,
+            0.1724922006239501,
+            0.18092152627789776,
+            0.1802735781137509,
+            0.17582793376529876
+          ]
+        },
+        "Precision@K": {
+          "mean": 0.06345572354211663,
+          "std": 0.0009573880610441624,
+          "values": [
+            0.06457883369330454,
+            0.06277897768178547,
+            0.06421886249100073,
+            0.06306695464362852,
+            0.06407487401007919,
+            0.06342692584593233,
+            0.06256299496040317,
+            0.06508279337652988,
+            0.06292296616270698,
+            0.06184305255579554
+          ]
+        }
+      },
+      "rl_bandit": {
+        "HR@K": {
+          "mean": 0.38351331893448526,
+          "std": 0.00871427755655393,
+          "values": [
+            0.36609071274298055,
+            0.37976961843052554,
+            0.3927285817134629,
+            0.38156947444204464,
+            0.39056875449964,
+            0.38948884089272856,
+            0.3758099352051836,
+            0.38156947444204464,
+            0.3801295896328294,
+            0.39740820734341253
+          ]
+        },
+        "NDCG@K": {
+          "mean": 0.2725671376304417,
+          "std": 0.006530930712308713,
+          "values": [
+            0.25950259223850053,
+            0.27372654067871294,
+            0.27331972753920974,
+            0.27248049329576013,
+            0.268021468856187,
+            0.2797459561435591,
+            0.26831838717978096,
+            0.2701049136391818,
+            0.2757361295434075,
+            0.28471516719011714
+          ]
+        },
+        "MRR@K": {
+          "mean": 0.2361531077513799,
+          "std": 0.006662745632784667,
+          "values": [
+            0.22484401247900174,
+            0.23884089272858172,
+            0.2339752819774418,
+            0.23665106791456686,
+            0.22801775857931367,
+            0.2437185025197984,
+            0.23304535637149026,
+            0.23328533717302613,
+            0.2413666906647468,
+            0.24778617710583153
+          ]
+        },
+        "Precision@K": {
+          "mean": 0.07670266378689705,
+          "std": 0.0017428555113107875,
+          "values": [
+            0.07321814254859611,
+            0.07595392368610511,
+            0.07854571634269258,
+            0.07631389488840892,
+            0.078113750899928,
+            0.07789776817854571,
+            0.07516198704103672,
+            0.07631389488840892,
+            0.07602591792656586,
+            0.07948164146868252
+          ]
+        }
+      },
+      "hybrid_cf_topsis": {
+        "HR@K": {
+          "mean": 0.39974802015838734,
+          "std": 0.008183705999383829,
+          "values": [
+            0.3880489560835133,
+            0.413966882649388,
+            0.4035277177825774,
+            0.4035277177825774,
+            0.39704823614110873,
+            0.38624910007199426,
+            0.40280777537796975,
+            0.39704823614110873,
+            0.3963282937365011,
+            0.4089272858171346
+          ]
+        },
+        "NDCG@K": {
+          "mean": 0.29243693185079456,
+          "std": 0.005714413003048222,
+          "values": [
+            0.2873262063399659,
+            0.29744854316686253,
+            0.2904985807779667,
+            0.2932313917945076,
+            0.28312401967425377,
+            0.28844872851691167,
+            0.2941854468561067,
+            0.29602409904124205,
+            0.28962622764774315,
+            0.3044560746923853
+          ]
+        },
+        "MRR@K": {
+          "mean": 0.2572660187185025,
+          "std": 0.006036376144085576,
+          "values": [
+            0.2541456683465323,
+            0.2596112311015119,
+            0.25342572594192464,
+            0.2571874250059995,
+            0.2458603311735061,
+            0.25619750419966403,
+            0.2585253179745621,
+            0.2630609551235901,
+            0.2546796256299496,
+            0.269966402687785
+          ]
+        },
+        "Precision@K": {
+          "mean": 0.07994960403167746,
+          "std": 0.0016367411998767678,
+          "values": [
+            0.07760979121670267,
+            0.08279337652987762,
+            0.08070554355651548,
+            0.08070554355651548,
+            0.07940964722822175,
+            0.07724982001439884,
+            0.08056155507559394,
+            0.07940964722822175,
+            0.07926565874730021,
+            0.08178545716342692
+          ]
+        }
+      },
+      "hybrid_rl_topsis": {
+        "HR@K": {
+          "mean": 0.3857091432685385,
+          "std": 0.009581254163389173,
+          "values": [
+            0.3776097912167027,
+            0.37976961843052554,
+            0.3718502519798416,
+            0.3923686105111591,
+            0.3758099352051836,
+            0.3855291576673866,
+            0.38696904247660185,
+            0.4035277177825774,
+            0.3851691864650828,
+            0.398488120950324
+          ]
+        },
+        "NDCG@K": {
+          "mean": 0.26288005626973954,
+          "std": 0.008679202033648145,
+          "values": [
+            0.26013367280123834,
+            0.2621729105086183,
+            0.2474620057054381,
+            0.2717477016553414,
+            0.25449884469823864,
+            0.26656327012504094,
+            0.25795017309049156,
+            0.27109182825912426,
+            0.2588912385502562,
+            0.2782889173036079
+          ]
+        },
+        "MRR@K": {
+          "mean": 0.22238480921526277,
+          "std": 0.00898037028166409,
+          "values": [
+            0.2215502759779218,
+            0.22349412047036238,
+            0.2062335013198944,
+            0.232043436525078,
+            0.21422486201103913,
+            0.22687185025197984,
+            0.21560475161987042,
+            0.22741180705543557,
+            0.21760859131269497,
+            0.23880489560835133
+          ]
+        },
+        "Precision@K": {
+          "mean": 0.07714182865370771,
+          "std": 0.0019162508326778297,
+          "values": [
+            0.07552195824334054,
+            0.07595392368610512,
+            0.07437005039596833,
+            0.07847372210223182,
+            0.07516198704103672,
+            0.07710583153347732,
+            0.07739380849532038,
+            0.08070554355651548,
+            0.07703383729301656,
+            0.07969762419006479
+          ]
+        }
+      },
+      "full_hybrid": {
+        "HR@K": {
+          "mean": 0.4213102951763859,
+          "std": 0.009278881819773488,
+          "values": [
+            0.4143268538516919,
+            0.41828653707703384,
+            0.4215262778977682,
+            0.42296616270698345,
+            0.4168466522678186,
+            0.4136069114470842,
+            0.42332613390928725,
+            0.41216702663786897,
+            0.42368610511159105,
+            0.44636429085673146
+          ]
+        },
+        "NDCG@K": {
+          "mean": 0.30401685968404635,
+          "std": 0.007282567211504764,
+          "values": [
+            0.3007796125610318,
+            0.3011727390901468,
+            0.30066531980861044,
+            0.30647443211111236,
+            0.29281742478507705,
+            0.30356259374052247,
+            0.3024211752598792,
+            0.30549558206288513,
+            0.3036830613633943,
+            0.32309665605780374
+          ]
+        },
+        "MRR@K": {
+          "mean": 0.2655993520518358,
+          "std": 0.007296319914436375,
+          "values": [
+            0.26352891768658504,
+            0.26302495800335973,
+            0.2611351091912647,
+            0.2683765298776098,
+            0.25244180465562754,
+            0.26745860331173504,
+            0.2628449724022078,
+            0.27039236861051114,
+            0.26430885529157666,
+            0.282481401487881
+          ]
+        },
+        "Precision@K": {
+          "mean": 0.08426205903527717,
+          "std": 0.0018557763639546988,
+          "values": [
+            0.08286537077033837,
+            0.08365730741540676,
+            0.08430525557955364,
+            0.08459323254139668,
+            0.08336933045356372,
+            0.08272138228941685,
+            0.08466522678185745,
+            0.08243340532757379,
+            0.0847372210223182,
+            0.0892728581713463
+          ]
+        }
+      }
+    },
+    "stat_tests": {
+      "full_hybrid_vs_repeat_last_ndcg": {
+        "statistic": 0.0,
+        "pvalue": 0.001953125,
+        "rank_biserial": 1.0
+      },
+      "full_hybrid_vs_item_markov_ndcg": {
+        "statistic": 0.0,
+        "pvalue": 0.001953125,
+        "rank_biserial": 1.0
+      },
+      "full_hybrid_vs_transition_cf_ndcg": {
+        "statistic": 0.0,
+        "pvalue": 0.001953125,
+        "rank_biserial": 1.0
+      },
+      "full_hybrid_vs_hybrid_cf_topsis_ndcg": {
+        "statistic": 0.0,
+        "pvalue": 0.001953125,
+        "rank_biserial": 1.0
+      },
+      "full_hybrid_vs_gru4rec_ndcg": {
+        "statistic": 0.0,
+        "pvalue": 0.001953125,
+        "rank_biserial": 1.0
+      },
+      "full_hybrid_vs_sasrec_ndcg": {
+        "statistic": 1.0,
+        "pvalue": 0.00390625,
+        "rank_biserial": 0.9636363636363636
+      }
+    }
+  }
+}

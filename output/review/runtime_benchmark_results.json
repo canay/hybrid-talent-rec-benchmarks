@@ -1,0 +1,473 @@
+{
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.12.12",
+    "processor": "Intel64 Family 6 Model 151 Stepping 5, GenuineIntel",
+    "repeats": 3
+  },
+  "datasets": {
+    "jobhop_ict_benchmark_v1": {
+      "dataset_metadata": {
+        "dataset_name": "jobhop_ict_benchmark_v1",
+        "source_name": "JobHop",
+        "source_csv_urls": [
+          "https://huggingface.co/datasets/aida-ugent/JobHop/resolve/main/JobHop_train.csv?download=1",
+          "https://huggingface.co/datasets/aida-ugent/JobHop/resolve/main/JobHop_val.csv?download=1",
+          "https://huggingface.co/datasets/aida-ugent/JobHop/resolve/main/JobHop_test.csv?download=1"
+        ],
+        "created_on": "2026-03-31",
+        "task": "next_occupation_recommendation",
+        "domain_scope": "skills-aware technology talent recommendation",
+        "filtering": {
+          "manual_ict_scan_size": 76,
+          "min_user_sequence_length": 3,
+          "min_item_user_support": 25,
+          "collapse_consecutive_duplicates": false
+        },
+        "stats": {
+          "raw_manual_filter_interactions": 30000,
+          "raw_manual_filter_users": 18111,
+          "raw_manual_filter_items": 76,
+          "filtered_interactions": 10826,
+          "filtered_users": 2778,
+          "filtered_items": 47,
+          "avg_sequence_length": 3.8970482361411087,
+          "max_sequence_length": 11,
+          "min_sequence_length": 3,
+          "family_distribution": {
+            "data_ai": 6,
+            "digital_experience": 2,
+            "hardware_automation": 4,
+            "infrastructure_security": 9,
+            "software_engineering": 15,
+            "tech_management": 11
+          }
+        }
+      },
+      "config": {
+        "dataset_dir": "C:\\DOCS\\AKADEMIK\\GIT_clones\\hybrid-rl-chatpt_codex\\data\\prepared\\jobhop_ict_benchmark_v1",
+        "output_path": "unused",
+        "top_k": 5,
+        "repeats": 10,
+        "seed_start": 100,
+        "topsis_alphas": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "rl_weights": [
+          0.0,
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5
+        ],
+        "cf_weights": [
+          0.0,
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7
+        ],
+        "nmf_components_grid": [
+          6,
+          10,
+          14
+        ],
+        "svd_components_grid": [
+          6,
+          10,
+          14
+        ],
+        "gru_hidden_dims_grid": [
+          16,
+          32,
+          64
+        ],
+        "sasrec_hidden_dims_grid": [
+          16,
+          32,
+          64
+        ],
+        "rl_learning_rate": 0.2,
+        "rl_negative_reward": -0.2,
+        "rl_negatives_per_positive": 2,
+        "rl_epochs": 30,
+        "rl_transition_weight": 0.7,
+        "canonical_seed": 20260331,
+        "gru_epochs": 25,
+        "gru_learning_rate": 0.001,
+        "gru_weight_decay": 1e-05,
+        "gru_batch_size": 64,
+        "sasrec_num_heads": 2,
+        "sasrec_num_layers": 1,
+        "sasrec_dropout": 0.1,
+        "sasrec_epochs": 25,
+        "sasrec_learning_rate": 0.001,
+        "sasrec_weight_decay": 1e-05,
+        "sasrec_batch_size": 64
+      },
+      "runtime_summary": {
+        "transition_cf": {
+          "fit_select_seconds": {
+            "mean": 0.13929003333517662,
+            "std": 0.0038024352968301987
+          },
+          "test_eval_seconds": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "runs": [
+            {
+              "fit_select_seconds": 0.13469560001976788,
+              "test_eval_seconds": 0.0
+            },
+            {
+              "fit_select_seconds": 0.14400720002595335,
+              "test_eval_seconds": 0.0
+            },
+            {
+              "fit_select_seconds": 0.1391672999598086,
+              "test_eval_seconds": 0.0
+            }
+          ]
+        },
+        "gru4rec": {
+          "fit_select_seconds": {
+            "mean": 11.070825266690614,
+            "std": 1.315255344751422
+          },
+          "test_eval_seconds": {
+            "mean": 0.018017666686015826,
+            "std": 0.00040378517470820774
+          },
+          "runs": [
+            {
+              "fit_select_seconds": 12.862099400022998,
+              "test_eval_seconds": 0.018519800039939582,
+              "hidden_dim": 32
+            },
+            {
+              "fit_select_seconds": 10.609178600017913,
+              "test_eval_seconds": 0.017531099962070584,
+              "hidden_dim": 32
+            },
+            {
+              "fit_select_seconds": 9.741197800030932,
+              "test_eval_seconds": 0.018002100056037307,
+              "hidden_dim": 32
+            }
+          ]
+        },
+        "sasrec": {
+          "fit_select_seconds": {
+            "mean": 20.237645733286627,
+            "std": 1.2197483439765529
+          },
+          "test_eval_seconds": {
+            "mean": 0.021439933373282354,
+            "std": 0.002560688694111859
+          },
+          "runs": [
+            {
+              "fit_select_seconds": 21.947614899952896,
+              "test_eval_seconds": 0.025016500032506883,
+              "hidden_dim": 32
+            },
+            {
+              "fit_select_seconds": 19.18598089995794,
+              "test_eval_seconds": 0.019159900024533272,
+              "hidden_dim": 32
+            },
+            {
+              "fit_select_seconds": 19.579341399949044,
+              "test_eval_seconds": 0.020143400062806904,
+              "hidden_dim": 32
+            }
+          ]
+        },
+        "full_hybrid": {
+          "fit_select_seconds": {
+            "mean": 10.248943466654358,
+            "std": 0.2776319481226145
+          },
+          "test_eval_seconds": {
+            "mean": 0.019191899957756203,
+            "std": 0.0035874560215905906
+          },
+          "runs": [
+            {
+              "fit_select_seconds": 10.297843500040472,
+              "test_eval_seconds": 0.02318569994531572,
+              "weights": {
+                "cf_weight": 0.5,
+                "rl_weight": 0.4,
+                "topsis_weight": 0.09999999999999998
+              }
+            },
+            {
+              "fit_select_seconds": 9.887112599913962,
+              "test_eval_seconds": 0.019904599990695715,
+              "weights": {
+                "cf_weight": 0.5,
+                "rl_weight": 0.4,
+                "topsis_weight": 0.09999999999999998
+              }
+            },
+            {
+              "fit_select_seconds": 10.56187430000864,
+              "test_eval_seconds": 0.01448539993725717,
+              "weights": {
+                "cf_weight": 0.5,
+                "rl_weight": 0.4,
+                "topsis_weight": 0.09999999999999998
+              }
+            }
+          ]
+        }
+      }
+    },
+    "karrierewege_ict_benchmark_v1": {
+      "dataset_metadata": {
+        "dataset_name": "karrierewege_ict_benchmark_v1",
+        "source_name": "KARRIEREWEGE",
+        "source_parquet_urls": [
+          "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/train/0.parquet",
+          "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/train/1.parquet",
+          "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/train/2.parquet",
+          "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/train/3.parquet",
+          "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/train/4.parquet",
+          "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/train/5.parquet",
+          "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/train/6.parquet",
+          "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/train/7.parquet",
+          "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/train/8.parquet",
+          "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/validation/0.parquet",
+          "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/test/0.parquet",
+          "https://huggingface.co/api/datasets/ElenaSenger/Karrierewege/parquet/default/test/1.parquet"
+        ],
+        "created_on": "2026-03-31",
+        "task": "next_occupation_recommendation",
+        "domain_scope": "skills-aware technology talent recommendation",
+        "filtering": {
+          "manual_ict_scan_size": 58,
+          "min_user_sequence_length": 3,
+          "min_item_user_support": 25,
+          "collapse_consecutive_duplicates": false
+        },
+        "stats": {
+          "raw_manual_filter_interactions": 26757,
+          "raw_manual_filter_users": 15437,
+          "raw_manual_filter_items": 58,
+          "filtered_interactions": 10492,
+          "filtered_users": 2617,
+          "filtered_items": 35,
+          "avg_sequence_length": 4.0091708062667175,
+          "max_sequence_length": 23,
+          "min_sequence_length": 3,
+          "family_distribution": {
+            "data_ai": 6,
+            "digital_experience": 4,
+            "hardware_automation": 2,
+            "infrastructure_security": 9,
+            "software_engineering": 8,
+            "tech_management": 6
+          }
+        }
+      },
+      "config": {
+        "dataset_dir": "C:\\DOCS\\AKADEMIK\\GIT_clones\\hybrid-rl-chatpt_codex\\data\\prepared\\karrierewege_ict_benchmark_v1",
+        "output_path": "unused",
+        "top_k": 5,
+        "repeats": 10,
+        "seed_start": 100,
+        "topsis_alphas": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "rl_weights": [
+          0.0,
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5
+        ],
+        "cf_weights": [
+          0.0,
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7
+        ],
+        "nmf_components_grid": [
+          6,
+          10,
+          14
+        ],
+        "svd_components_grid": [
+          6,
+          10,
+          14
+        ],
+        "gru_hidden_dims_grid": [
+          16,
+          32,
+          64
+        ],
+        "sasrec_hidden_dims_grid": [
+          16,
+          32,
+          64
+        ],
+        "rl_learning_rate": 0.2,
+        "rl_negative_reward": -0.2,
+        "rl_negatives_per_positive": 2,
+        "rl_epochs": 30,
+        "rl_transition_weight": 0.7,
+        "canonical_seed": 20260331,
+        "gru_epochs": 25,
+        "gru_learning_rate": 0.001,
+        "gru_weight_decay": 1e-05,
+        "gru_batch_size": 64,
+        "sasrec_num_heads": 2,
+        "sasrec_num_layers": 1,
+        "sasrec_dropout": 0.1,
+        "sasrec_epochs": 25,
+        "sasrec_learning_rate": 0.001,
+        "sasrec_weight_decay": 1e-05,
+        "sasrec_batch_size": 64
+      },
+      "runtime_summary": {
+        "transition_cf": {
+          "fit_select_seconds": {
+            "mean": 0.11379803332965821,
+            "std": 0.00292084925218176
+          },
+          "test_eval_seconds": {
+            "mean": 0.0,
+            "std": 0.0
+          },
+          "runs": [
+            {
+              "fit_select_seconds": 0.11642229999415576,
+              "test_eval_seconds": 0.0
+            },
+            {
+              "fit_select_seconds": 0.11524850002024323,
+              "test_eval_seconds": 0.0
+            },
+            {
+              "fit_select_seconds": 0.10972329997457564,
+              "test_eval_seconds": 0.0
+            }
+          ]
+        },
+        "gru4rec": {
+          "fit_select_seconds": {
+            "mean": 11.576475566679923,
+            "std": 0.08379566266621913
+          },
+          "test_eval_seconds": {
+            "mean": 0.01525753332922856,
+            "std": 0.000615929772877578
+          },
+          "runs": [
+            {
+              "fit_select_seconds": 11.693743900046684,
+              "test_eval_seconds": 0.015945399994961917,
+              "hidden_dim": 64
+            },
+            {
+              "fit_select_seconds": 11.532629000023007,
+              "test_eval_seconds": 0.015376399969682097,
+              "hidden_dim": 64
+            },
+            {
+              "fit_select_seconds": 11.503053799970075,
+              "test_eval_seconds": 0.014450800023041666,
+              "hidden_dim": 64
+            }
+          ]
+        },
+        "sasrec": {
+          "fit_select_seconds": {
+            "mean": 18.880504200040985,
+            "std": 0.6197147298994395
+          },
+          "test_eval_seconds": {
+            "mean": 0.01638319999134789,
+            "std": 0.0011544054555690615
+          },
+          "runs": [
+            {
+              "fit_select_seconds": 19.6960059000412,
+              "test_eval_seconds": 0.015284799970686436,
+              "hidden_dim": 64
+            },
+            {
+              "fit_select_seconds": 18.750759200076573,
+              "test_eval_seconds": 0.017978399991989136,
+              "hidden_dim": 32
+            },
+            {
+              "fit_select_seconds": 18.194747500005178,
+              "test_eval_seconds": 0.015886400011368096,
+              "hidden_dim": 32
+            }
+          ]
+        },
+        "full_hybrid": {
+          "fit_select_seconds": {
+            "mean": 7.848485666676424,
+            "std": 0.20269635394062702
+          },
+          "test_eval_seconds": {
+            "mean": 0.013369700017695626,
+            "std": 0.00011047173003477947
+          },
+          "runs": [
+            {
+              "fit_select_seconds": 7.564378299983218,
+              "test_eval_seconds": 0.013498599990271032,
+              "weights": {
+                "cf_weight": 0.7,
+                "rl_weight": 0.0,
+                "topsis_weight": 0.30000000000000004
+              }
+            },
+            {
+              "fit_select_seconds": 8.023569200071506,
+              "test_eval_seconds": 0.013228800031356514,
+              "weights": {
+                "cf_weight": 0.7,
+                "rl_weight": 0.0,
+                "topsis_weight": 0.30000000000000004
+              }
+            },
+            {
+              "fit_select_seconds": 7.957509499974549,
+              "test_eval_seconds": 0.013381700031459332,
+              "weights": {
+                "cf_weight": 0.7,
+                "rl_weight": 0.0,
+                "topsis_weight": 0.30000000000000004
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

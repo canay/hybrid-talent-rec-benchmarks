@@ -1,0 +1,59 @@
+label,family,selected_for_scan
+application engineer,software_engineering,True
+artificial intelligence engineer,data_ai,True
+automation engineer,hardware_automation,True
+blockchain developer,software_engineering,True
+business intelligence manager,data_ai,True
+chief ict security officer,infrastructure_security,True
+cloud architect,infrastructure_security,True
+cloud devops engineer,infrastructure_security,True
+computer hardware engineer,hardware_automation,True
+computer hardware engineering technician,hardware_automation,True
+computer hardware test technician,hardware_automation,True
+computer scientist,data_ai,True
+cybersecurity risk manager,infrastructure_security,True
+data analyst,data_ai,True
+data centre operator,infrastructure_security,True
+data engineer,data_ai,True
+data scientist,data_ai,True
+data warehouse designer,data_ai,True
+database integrator,infrastructure_security,True
+digital games designer,digital_experience,True
+digital games developer,digital_experience,True
+digital media designer,digital_experience,True
+digital transformation manager,tech_management,True
+e-learning developer,digital_experience,True
+embedded systems software developer,hardware_automation,True
+enterprise architect,tech_management,True
+geographic information systems specialist,data_ai,True
+green ict consultant,tech_management,True
+ict account manager,tech_management,True
+ict application configurator,software_engineering,True
+ict application developer,software_engineering,True
+ict business development manager,tech_management,True
+ict capacity planner,tech_management,True
+ict consultant,tech_management,True
+ict help desk agent,infrastructure_security,True
+ict help desk manager,infrastructure_security,True
+ict information and knowledge manager,tech_management,True
+ict network administrator,infrastructure_security,True
+ict network technician,infrastructure_security,True
+ict operations manager,tech_management,True
+ict project manager,tech_management,True
+ict quality assurance manager,tech_management,True
+ict research manager,tech_management,True
+ict system administrator,infrastructure_security,True
+ict system analyst,software_engineering,True
+ict system developer,software_engineering,True
+ict system tester,software_engineering,True
+ict technician,infrastructure_security,True
+ict test analyst,software_engineering,True
+ict trainer,tech_management,True
+iot developer,hardware_automation,True
+robotics engineer,hardware_automation,True
+software architect,software_engineering,True
+software developer,software_engineering,True
+software tester,software_engineering,True
+web content manager,digital_experience,True
+web designer,digital_experience,True
+web developer,software_engineering,True

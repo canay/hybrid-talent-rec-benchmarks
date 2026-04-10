@@ -1,0 +1,37 @@
+{
+  "dataset_name": "jobhop_ict_benchmark_v1",
+  "source_name": "JobHop",
+  "source_csv_urls": [
+    "https://huggingface.co/datasets/aida-ugent/JobHop/resolve/main/JobHop_train.csv?download=1",
+    "https://huggingface.co/datasets/aida-ugent/JobHop/resolve/main/JobHop_val.csv?download=1",
+    "https://huggingface.co/datasets/aida-ugent/JobHop/resolve/main/JobHop_test.csv?download=1"
+  ],
+  "created_on": "2026-03-31",
+  "task": "next_occupation_recommendation",
+  "domain_scope": "skills-aware technology talent recommendation",
+  "filtering": {
+    "manual_ict_scan_size": 76,
+    "min_user_sequence_length": 3,
+    "min_item_user_support": 25,
+    "collapse_consecutive_duplicates": false
+  },
+  "stats": {
+    "raw_manual_filter_interactions": 30000,
+    "raw_manual_filter_users": 18111,
+    "raw_manual_filter_items": 76,
+    "filtered_interactions": 10826,
+    "filtered_users": 2778,
+    "filtered_items": 47,
+    "avg_sequence_length": 3.8970482361411087,
+    "max_sequence_length": 11,
+    "min_sequence_length": 3,
+    "family_distribution": {
+      "data_ai": 6,
+      "digital_experience": 2,
+      "hardware_automation": 4,
+      "infrastructure_security": 9,
+      "software_engineering": 15,
+      "tech_management": 11
+    }
+  }
+}
