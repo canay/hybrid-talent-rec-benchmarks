@@ -4,10 +4,22 @@ Minimal replication package for the paper *Benchmark-Sensitive Hybrid Recommenda
 
 This repository contains the frozen ICT benchmark files, the model and evaluation code, and the derived result artifacts needed to reproduce the manuscript's main tables, figures, and robustness checks.
 
-Dr. Özkan Canay
-Dept. of Information Systems and Technologies
-Sakarya University
-canay@sakarya.edu.tr
+
+## Author And Contact
+
+Özkan Canay, PhD
+
+- Department of Information Systems and Technologies
+- Faculty of Computer and Information Sciences
+- Sakarya University
+- Email: canay@sakarya.edu.tr
+- ORCID: 0000-0001-7539-6001
+
+
+GitHub:
+
+https://github.com/canay
+
 
 ## Repository contents
 
